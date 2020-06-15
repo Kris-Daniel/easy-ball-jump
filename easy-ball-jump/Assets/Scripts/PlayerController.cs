@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Helpers;
 using UnityEngine;
@@ -29,6 +30,18 @@ public class PlayerController : MonoSingleton<PlayerController> {
         }
         else {
             _hasStartedPos = false;
+        }
+        
+    }
+
+
+    void OnTriggerEnter(Collider col) {
+        if (_rigidbody.velocity.y < 0.01f) {
+            PlatformBreakableController breakablePlatform = col.GetComponent<PlatformBreakableController>();
+            if (breakablePlatform != null)
+                Destroy(breakablePlatform.gameObject);
+            else
+                _rigidbody.velocity = new Vector3(0, 10f, 0);
         }
         
     }
