@@ -13,7 +13,7 @@ public class PlayerController : MonoSingleton<PlayerController> {
     // Start is called before the first frame update
     void Start() {
         _rigidbody = gameObject.GetComponent<Rigidbody>();
-        _rigidbody.velocity += new Vector3(0, 10f, 0);
+        _rigidbody.velocity += new Vector3(0, 12f, 0);
     }
 
     // Update is called once per frame
