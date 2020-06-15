@@ -9,11 +9,10 @@ public class PlayerController : MonoSingleton<PlayerController> {
     bool _hasStartedPos = false;
     float _startedPosX;
 
-    Rigidbody _rigidbody;
-    // Start is called before the first frame update
+    public Rigidbody rigidbody;
     void Start() {
-        _rigidbody = gameObject.GetComponent<Rigidbody>();
-        _rigidbody.velocity += new Vector3(0, 12f, 0);
+        rigidbody = gameObject.GetComponent<Rigidbody>();
+        rigidbody.velocity += new Vector3(0, 12f, 0);
     }
 
     // Update is called once per frame
@@ -36,12 +35,12 @@ public class PlayerController : MonoSingleton<PlayerController> {
 
 
     void OnTriggerEnter(Collider col) {
-        if (_rigidbody.velocity.y < 0.01f) {
+        if (rigidbody.velocity.y < 0.01f) {
             PlatformBreakableController breakablePlatform = col.GetComponent<PlatformBreakableController>();
             if (breakablePlatform != null)
-                Destroy(breakablePlatform.gameObject);
+                breakablePlatform.gameObject.SetActive(false);
             else
-                _rigidbody.velocity = new Vector3(0, 10f, 0);
+                rigidbody.velocity = new Vector3(0, 10f, 0);
         }
         
     }

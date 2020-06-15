@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class PlatformHorizontalController : PlatformController
 {    
-    public PathType pathType = PathType.CatmullRom;
-    Vector3[] _waypoints = new[] {
-        new Vector3(PlatformPoolController.leftEdge, 0, 0),
-        new Vector3(PlatformPoolController.rightEdge, 0, 0),
-    };
     IEnumerator Start()
     {
         yield return new WaitForSeconds(1);
@@ -22,10 +17,10 @@ public class PlatformHorizontalController : PlatformController
     }
 
     void MoveRight() {
-        transform.DOMoveX(5.5f, 4).SetSpeedBased().SetEase(Ease.Linear).OnComplete(MoveLeft);
+        transform.DOMoveX(PlatformPoolController.leftEdge, 4).SetSpeedBased().SetEase(Ease.Linear).OnComplete(MoveLeft);
     }
     void MoveLeft() {
-        transform.DOMoveX(-5.5f, 4).SetSpeedBased().SetEase(Ease.Linear).OnComplete(MoveRight);
+        transform.DOMoveX(PlatformPoolController.rightEdge, 4).SetSpeedBased().SetEase(Ease.Linear).OnComplete(MoveRight);
     }
     
 }

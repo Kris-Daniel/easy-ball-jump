@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &81462882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922f9eea1a01be84d88049fe65f13cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody: {fileID: 0}
 --- !u!224 &765371854 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5062930796795708941, guid: c498b928f3d50cc4cbd32a43693a1089,
@@ -712,6 +713,7 @@ MonoBehaviour:
   - {fileID: 3356731389962669461, guid: 79db49ef06244a343938dcbdc05ae231, type: 3}
   - {fileID: 3816115990307588991, guid: cb9c05c0c0e8aa949a7183f33a083c55, type: 3}
   - {fileID: 8833713287593440681, guid: 77dd17a0527fc26459bd79975557a943, type: 3}
+  inactivePlatformGrids: []
 --- !u!4 &1305406411
 Transform:
   m_ObjectHideFlags: 0
