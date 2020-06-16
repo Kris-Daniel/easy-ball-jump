@@ -18,6 +18,7 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
     public static float leftEdge = -5.5f;
     public static float rightEdge = 5.5f;
     public static float bottomEdge = -6f;
+    [HideInInspector]
     public float topEdge;
 
     int _lastPlatformID = -1;

@@ -18,12 +18,16 @@ public class GameSceneManager : MonoSingleton<GameSceneManager> {
         Theme themeColor = _ThemeColors[Random.Range(0, _ThemeColors.Count)];
         Material playerShader = PlayerController.Instance.GetComponent<Renderer>().sharedMaterial;
         playerShader.SetColor("_Color", themeColor.BallColor);
+        
+        Material background = BackgroundController.Instance.GetComponent<Renderer>().sharedMaterial;
+        background.SetColor("_Color", themeColor.BackgroundColor);
 
         PlayerController.OnChangeScore += ChangeScore;
     }
 
     public void LoseGame() {
         PlayerController.Instance.ResetOnChangeScore();
+        score--;
         highScore = score > highScore ? score : highScore;
         PlayerPrefs.SetInt("HighScore", highScore);
         UIManager.Instance.GetComponent<ButtonActions>().PauseGame("LoseMenu");
