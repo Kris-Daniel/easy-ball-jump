@@ -9,9 +9,13 @@ using UnityEngine.SocialPlatforms.Impl;
 public class PlayerController : MonoSingleton<PlayerController> {
     bool _hasStartedPos = false;
     float _startedPosX;
-
+    
+    [HideInInspector]
     public Rigidbody rigidbody;
     TrailRenderer _trailRenderer;
+    
+    [SerializeField]
+    ParticleSystem _particleSystem;
 
     public static Action<int> OnChangeScore;
 
@@ -52,8 +56,10 @@ public class PlayerController : MonoSingleton<PlayerController> {
                 Destroy(breakablePlatform.gameObject);
             else {
                 PlatformController platformController = col.GetComponent<PlatformController>();
-                if(platformController != null)
+                if (platformController != null) {
                     rigidbody.velocity = new Vector3(0, 10f, 0);
+                    Instantiate(_particleSystem, transform.position, Quaternion.identity);
+                }
             }
         }
 
