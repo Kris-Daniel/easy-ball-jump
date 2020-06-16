@@ -31,7 +31,7 @@ public class PlatformGridController : MonoBehaviour {
         Vector3 direction = new Vector3(0, a * Time.deltaTime, 0);
         transform.Translate(direction, Space.World);
         
-        if (transform.position.y < PlatformPoolController.bottomEdge) {
+        if (transform.position.y < PlatformPoolController.Instance.bottomEdge) {
             PlatformPoolController.Instance.inactivePlatformGrids.Add(gameObject);
             if (_platform != null)
                 Destroy(_platform);

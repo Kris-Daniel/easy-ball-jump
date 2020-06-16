@@ -17,20 +17,26 @@ public class PlayerController : MonoSingleton<PlayerController> {
     public ParticleSystem particleSystem;
 
     public static Action<int> OnChangeScore;
+    
+    [SerializeField]
+    float _impulse;
 
     void Start() {
         transform.position = new Vector3(0, 1, 0);
         rigidbody = gameObject.GetComponent<Rigidbody>();
-        rigidbody.velocity += new Vector3(0, 10f, 0);
+        rigidbody.velocity += new Vector3(0, _impulse, 0);
         _trailRenderer = gameObject.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
     void Update() {
-        if (rigidbody.velocity.y < 0f)
+        if (rigidbody.velocity.y < 2f) {
             _trailRenderer.enabled = false;
+        }
        else
+       {
             _trailRenderer.enabled = true;
+       }
         
         float xOffset = InputManager.Instance.xOffset;
         if (xOffset > 0.01f || xOffset < -0.01f) {
@@ -57,7 +63,7 @@ public class PlayerController : MonoSingleton<PlayerController> {
             else {
                 PlatformController platformController = col.GetComponent<PlatformController>();
                 if (platformController != null) {
-                    rigidbody.velocity = new Vector3(0, 10f, 0);
+                    rigidbody.velocity = new Vector3(0, _impulse, 0);
                     Instantiate(particleSystem, transform.position, Quaternion.identity);
                 }
             }

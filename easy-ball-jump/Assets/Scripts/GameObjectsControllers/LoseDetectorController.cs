@@ -8,7 +8,7 @@ public class LoseDetectorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, PlatformPoolController.bottomEdge, 0);
+        transform.position = new Vector3(0, PlatformPoolController.Instance.bottomEdge, 0);
     }
 
     void OnTriggerEnter(Collider col) {

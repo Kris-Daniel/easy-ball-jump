@@ -17,9 +17,12 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
     int _gridHeight = 2;
     public static float leftEdge = -5.5f;
     public static float rightEdge = 5.5f;
-    public static float bottomEdge = -6f;
     [HideInInspector]
+    public float bottomEdge = -6f;
     public float topEdge;
+    
+    [SerializeField]
+    List<GameObject> objectsToMove;
 
     int _lastPlatformID = -1;
 
@@ -35,12 +38,18 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
 
     int GetRandomPlatformID() {
         int platformID = Random.Range(0, platforms.Count);
+        int score = GameSceneManager.Instance.score;
+        if (score < 20) return 0;
+        if (score < 40) return Random.Range(0, 2);
+        if (score < 60) return Random.Range(0, 3);
+        
         // Decrease chance for red platforms
         if(platformID == _lastPlatformID && platformID == 3)
             platformID = Random.Range(0, platforms.Count - 1);
 
         _lastPlatformID = platformID;
         return platformID;
+        
     }
 
     void SpawnRandomPlatform(GameObject platformGrid) {
@@ -54,9 +63,18 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
         if (inactivePlatformGrids.Count > 0) {
             var inactivePlatformGrid = inactivePlatformGrids[0];
             inactivePlatformGrid.SetActive(true);
-            inactivePlatformGrid.transform.position = new Vector3(0, topEdge, 0);
+            inactivePlatformGrid.transform.position = new Vector3(0, topEdge + transform.position.y, 0);
             SpawnRandomPlatform(inactivePlatformGrid);
             inactivePlatformGrids.Remove(inactivePlatformGrid);
+        }
+        
+        float posDifferenceY = PlayerController.Instance.transform.position.y - transform.position.y;
+        if (posDifferenceY > 10f) {
+            Vector3 direction = new Vector3(0, 7f * Time.deltaTime, 0);
+            bottomEdge = transform.position.y - 6f;
+            foreach (var objectToMove in objectsToMove) {
+                objectToMove.transform.Translate(direction, Space.World);
+            }
         }
     }
 }

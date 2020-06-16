@@ -47,8 +47,10 @@ MonoBehaviour:
     type: 3}
   platforms:
   - {fileID: 6563351488234754446, guid: a1476186553b60649a7e32c95fef3efa, type: 3}
-  - {fileID: 3356731389962669461, guid: 79db49ef06244a343938dcbdc05ae231, type: 3}
   - {fileID: 3816115990307588991, guid: cb9c05c0c0e8aa949a7183f33a083c55, type: 3}
+  - {fileID: 3356731389962669461, guid: 79db49ef06244a343938dcbdc05ae231, type: 3}
   - {fileID: 8833713287593440681, guid: 77dd17a0527fc26459bd79975557a943, type: 3}
   inactivePlatformGrids: []
+  bottomEdge: -6
   topEdge: 0
+  objectsToMove: []
