@@ -3,11 +3,13 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - BackgroundController
     - ButtonActions
+    - CameraController
     - CurrentScoreController
     - GameSceneManager
     - HighScoreController
     - InputManager
     - LoseDetectorController
+    - MusicManager
     - PausePanelController
     - PlatformBreakableController
     - PlatformGridController
@@ -114,29 +116,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 12082}
+      Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 12084}
     - Class: 114
-      Script: {instanceID: 12172}
+      Script: {instanceID: 12118}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 12174}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12210}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12480}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12612}
+      Script: {instanceID: 12482}
     - Class: 114
-      Script: {instanceID: 12658}
+      Script: {instanceID: 12614}
     - Class: 114
-      Script: {instanceID: 12980}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12982}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13014}
+    - Class: 114
+      Script: {instanceID: 13034}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -178,6 +182,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -195,21 +203,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 12080}
+      Script: {instanceID: 12082}
     - Class: 114
-      Script: {instanceID: 12172}
+      Script: {instanceID: 12174}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 12210}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12612}
+      Script: {instanceID: 12614}
     - Class: 114
-      Script: {instanceID: 12658}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 13014}
+    - Class: 114
+      Script: {instanceID: 14640}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -391,7 +401,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 7bf677d7b4707fea8d7adee31828bd18
+      Hash: 8905c68628e00fd23fd32be8871042ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlatformPoolController
@@ -511,6 +521,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraController
+  - hash:
+      serializedVersion: 2
       Hash: 704dcd31abc789439bc3f3cd10b58c2b
     assemblyName: DOTween.dll
     namespaceName: DG.Tweening.Core
@@ -619,7 +635,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 3ccf6eab67e90da88bd24b3d53f7b902
+      Hash: 2f4af7586a10db8db582b4a87cc83b76
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -773,6 +789,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 3b73606e40417d4ab473f792ff656c74
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MusicManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenuScene.unity

@@ -44,6 +44,8 @@ public class GameSceneManager : MonoSingleton<GameSceneManager> {
 
     public void LoseGame() {
         score--;
+        if(MusicManager.Instance != null)
+            MusicManager.Instance.PlayGameOverSound();
         PlayerController.Instance.ResetOnChangeScore();
         highScore = score > highScore ? score : highScore;
         PlayerPrefs.SetInt("HighScore", highScore);

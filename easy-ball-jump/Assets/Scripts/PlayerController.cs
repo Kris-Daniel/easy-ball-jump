@@ -64,6 +64,8 @@ public class PlayerController : MonoSingleton<PlayerController> {
                 PlatformController platformController = col.GetComponent<PlatformController>();
                 if (platformController != null) {
                     rigidbody.velocity = new Vector3(0, _impulse, 0);
+                    if(MusicManager.Instance != null)
+                        MusicManager.Instance.PlayBallJumpSound();
                     Instantiate(particleSystem, transform.position, Quaternion.identity);
                 }
             }

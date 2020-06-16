@@ -20,6 +20,8 @@ public class ButtonActions : MonoBehaviour
     public void RestartGame() {
         SceneManager.LoadScene("GameScene");
         Time.timeScale = 1;
+        if(MusicManager.Instance != null)
+            MusicManager.Instance.PlayAmbientSound();
     }
     public void ExitGame() {
         Application.Quit();

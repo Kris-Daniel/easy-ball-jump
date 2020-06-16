@@ -70,7 +70,7 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
         
         float posDifferenceY = PlayerController.Instance.transform.position.y - transform.position.y;
         if (posDifferenceY > 10f) {
-            Vector3 direction = new Vector3(0, 7f * Time.deltaTime, 0);
+            Vector3 direction = new Vector3(0, 6f * Time.deltaTime, 0);
             bottomEdge = transform.position.y - 6f;
             foreach (var objectToMove in objectsToMove) {
                 objectToMove.transform.Translate(direction, Space.World);
