@@ -43,7 +43,7 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
     }
 
     void SpawnRandomPlatform(GameObject platformGrid) {
-        int spawnProbability = Random.Range(0, 20);
+        int spawnProbability = Random.Range(0, 10);
         if(spawnProbability > 0)
             platformGrid.GetComponent<PlatformGridController>().SpawnPlatform(platforms[GetRandomPlatformID()].gameObject);
     }

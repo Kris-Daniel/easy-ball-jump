@@ -2,15 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using Helpers;
+using Platforms;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoSingleton<PlayerController> {
-
     bool _hasStartedPos = false;
     float _startedPosX;
 
     public Rigidbody rigidbody;
     TrailRenderer _trailRenderer;
+
+    public static Action<int> OnChangeScore;
+
     void Start() {
         transform.position = new Vector3(0, 1, 0);
         rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -46,9 +50,22 @@ public class PlayerController : MonoSingleton<PlayerController> {
             PlatformBreakableController breakablePlatform = col.GetComponent<PlatformBreakableController>();
             if (breakablePlatform != null)
                 Destroy(breakablePlatform.gameObject);
-            else
-                rigidbody.velocity = new Vector3(0, 10f, 0);
+            else {
+                PlatformController platformController = col.GetComponent<PlatformController>();
+                if(platformController != null)
+                    rigidbody.velocity = new Vector3(0, 10f, 0);
+            }
         }
-        
+
+        PlatformGridController platformGrid = col.gameObject.GetComponent<PlatformGridController>();
+        if (platformGrid != null) {
+            if(OnChangeScore != null && platformGrid.scoreToAdd > 0)
+                OnChangeScore(platformGrid.scoreToAdd);
+            platformGrid.scoreToAdd = 0;
+        }
+    }
+
+    public void ResetOnChangeScore() {
+        OnChangeScore = null;
     }
 }

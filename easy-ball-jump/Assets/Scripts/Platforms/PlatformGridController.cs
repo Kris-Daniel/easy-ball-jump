@@ -6,8 +6,12 @@ using Platforms;
 using UnityEngine;
 
 public class PlatformGridController : MonoBehaviour {
-
+    public int scoreToAdd = 1;
     GameObject _platform;
+
+    void OnEnable() {
+        scoreToAdd = 1;
+    }
 
     public void SpawnPlatform(GameObject platformToSpawn) {
         _platform = Instantiate(platformToSpawn, transform.position, Quaternion.identity);
@@ -35,4 +39,6 @@ public class PlatformGridController : MonoBehaviour {
         }
         
     }
+    
+    
 }
