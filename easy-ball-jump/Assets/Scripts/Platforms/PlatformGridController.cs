@@ -16,27 +16,23 @@ public class PlatformGridController : MonoBehaviour {
     }
 
     void Update() {
-        if (_platform == null) return;
-        
-        if (transform.position.y < -10f) {
-            PlatformPoolController.Instance.inactivePlatformGrids.Add(gameObject);
-            Destroy(_platform);
-            gameObject.SetActive(false);
-            return;
-        }
         
         float playerVelocityY = PlayerController.Instance.rigidbody.velocity.y;
         float playerPosY = PlayerController.Instance.transform.position.y;
-        float moveSpeedBoost = playerPosY > 10f ? playerPosY : 1;
+        float moveSpeedBoost = playerVelocityY > 6f ? playerPosY * 2 : 1;
 
-        if (playerVelocityY > 0) {
-            Vector3 direction = new Vector3(0, (-playerVelocityY - moveSpeedBoost) * Time.deltaTime, 0);
-            transform.Translate(direction, Space.World);
+        float a = Mathf.Clamp(-playerVelocityY - playerPosY, -5f, 0f);
+        
+
+        Vector3 direction = new Vector3(0, a * Time.deltaTime, 0);
+        transform.Translate(direction, Space.World);
+        
+        if (transform.position.y < PlatformPoolController.bottomEdge) {
+            PlatformPoolController.Instance.inactivePlatformGrids.Add(gameObject);
+            if (_platform != null)
+                Destroy(_platform);
+            gameObject.SetActive(false);
         }
-        else {
-            
-            Vector3 direction = new Vector3(0, -moveSpeedBoost * Time.deltaTime, 0);
-            transform.Translate(direction, Space.World);
-        }
+        
     }
 }

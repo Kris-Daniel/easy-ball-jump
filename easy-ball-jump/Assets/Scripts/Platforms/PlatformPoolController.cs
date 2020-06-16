@@ -17,10 +17,13 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
     int _gridHeight = 2;
     public static float leftEdge = -5.5f;
     public static float rightEdge = 5.5f;
+    public static float bottomEdge = -6f;
+    public float topEdge;
 
     int _lastPlatformID = -1;
 
     void Start() {
+        topEdge = _groundOffset + (_gridAmount * _gridHeight) + bottomEdge;
         for (var i = 0; i < _gridAmount; i++) {
             GameObject platformGrid = Instantiate(_platformGrid, new Vector3(0, (i + _groundOffset) * _gridHeight, 0),
                 Quaternion.identity);
@@ -40,7 +43,7 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
     }
 
     void SpawnRandomPlatform(GameObject platformGrid) {
-        int spawnProbability = Random.Range(0, 10);
+        int spawnProbability = Random.Range(0, 20);
         if(spawnProbability > 0)
             platformGrid.GetComponent<PlatformGridController>().SpawnPlatform(platforms[GetRandomPlatformID()].gameObject);
     }
@@ -50,7 +53,7 @@ public class PlatformPoolController : MonoSingleton<PlatformPoolController> {
         if (inactivePlatformGrids.Count > 0) {
             var inactivePlatformGrid = inactivePlatformGrids[0];
             inactivePlatformGrid.SetActive(true);
-            inactivePlatformGrid.transform.position = new Vector3(0, _groundOffset + (_gridAmount * _gridHeight) - 10);
+            inactivePlatformGrid.transform.position = new Vector3(0, topEdge, 0);
             SpawnRandomPlatform(inactivePlatformGrid);
             inactivePlatformGrids.Remove(inactivePlatformGrid);
         }

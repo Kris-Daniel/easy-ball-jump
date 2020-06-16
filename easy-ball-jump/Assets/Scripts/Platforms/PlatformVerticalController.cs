@@ -25,7 +25,7 @@ public class PlatformVerticalController : PlatformController {
     void MoveTop() {
         transform.Translate(new Vector3(0, Time.deltaTime, 0), Space.World);
         _moveCounter += Time.deltaTime;
-        if (_moveCounter > 1.5f) {
+        if (_moveCounter > 1.2f) {
             _moveCounter = 0f;
             _isMoveTop = false;
         }
@@ -33,7 +33,7 @@ public class PlatformVerticalController : PlatformController {
     void MoveDown() {
         transform.Translate(new Vector3(0, -Time.deltaTime, 0), Space.World);
         _moveCounter -= Time.deltaTime;
-        if (_moveCounter < -1.5f) {
+        if (_moveCounter < -1.2f) {
             _moveCounter = 0f;
             _isMoveTop = true;
         }
