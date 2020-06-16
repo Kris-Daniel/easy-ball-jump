@@ -725,12 +725,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 320, y: 500}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1097,6 +1097,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Easy Ball Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090559248160428848, guid: 501f529bb38fbca4da1a5827b2793c66,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.15744035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090559248160428848, guid: 501f529bb38fbca4da1a5827b2793c66,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.24399397
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090559248160428848, guid: 501f529bb38fbca4da1a5827b2793c66,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 2090559248232008750, guid: 501f529bb38fbca4da1a5827b2793c66,
         type: 3}

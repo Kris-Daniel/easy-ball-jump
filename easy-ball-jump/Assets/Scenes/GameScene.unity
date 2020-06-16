@@ -621,6 +621,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2017570254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5062930796795708942, guid: c498b928f3d50cc4cbd32a43693a1089,
+    type: 3}
+  m_PrefabInstance: {fileID: 5062930796453192643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2025178390
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,12 +675,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 320, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1708,6 +1714,11 @@ PrefabInstance:
       propertyPath: ScoreObjectsInGameOver.Array.data[1]
       value: 
       objectReference: {fileID: 470975848}
+    - target: {fileID: 3671767198881678408, guid: b3d6a2eeb3f356c4b90e5f946627827f,
+        type: 3}
+      propertyPath: inGameScore
+      value: 
+      objectReference: {fileID: 2017570254}
     - target: {fileID: 3671767198881678409, guid: b3d6a2eeb3f356c4b90e5f946627827f,
         type: 3}
       propertyPath: m_LocalPosition.x

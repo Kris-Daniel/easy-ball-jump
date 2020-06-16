@@ -14,8 +14,7 @@ public class PlayerController : MonoSingleton<PlayerController> {
     public Rigidbody rigidbody;
     TrailRenderer _trailRenderer;
     
-    [SerializeField]
-    ParticleSystem _particleSystem;
+    public ParticleSystem particleSystem;
 
     public static Action<int> OnChangeScore;
 
@@ -39,8 +38,9 @@ public class PlayerController : MonoSingleton<PlayerController> {
                 _hasStartedPos = true;
                 _startedPosX = transform.position.x;
             }
-
-            float newPosX = Mathf.Clamp(_startedPosX + xOffset, -6f, 6f);
+            
+            float edge = InputManager.Instance.screenBounds.x + transform.GetComponent<Renderer>().bounds.size.x / 2f;
+            float newPosX = Mathf.Clamp(_startedPosX + xOffset, edge, -edge);
             transform.position = new Vector3(newPosX, transform.position.y, transform.position.z);
         }
         else {
@@ -58,7 +58,7 @@ public class PlayerController : MonoSingleton<PlayerController> {
                 PlatformController platformController = col.GetComponent<PlatformController>();
                 if (platformController != null) {
                     rigidbody.velocity = new Vector3(0, 10f, 0);
-                    Instantiate(_particleSystem, transform.position, Quaternion.identity);
+                    Instantiate(particleSystem, transform.position, Quaternion.identity);
                 }
             }
         }

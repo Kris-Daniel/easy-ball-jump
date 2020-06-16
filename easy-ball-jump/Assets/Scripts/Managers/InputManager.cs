@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Helpers;
 using UnityEngine;
@@ -8,21 +9,24 @@ public class InputManager : MonoSingleton<InputManager>
     public float xOffset;
     float _xStartedPos;
     bool _hasStartedPos = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    public Vector2 screenBounds;
+
+    void Start() {
+        screenBounds =
+            Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
-        }
-
-        if (Input.GetAxis("Fire1") > 0f) {
-            
+        
+        Vector2? posUI = null;
+        if (Input.GetAxis("Fire1") > 0f)
+            posUI = Input.mousePosition;
+        if (Input.touchCount > 0)
+            posUI = Input.GetTouch(0).position;
+        
+        if (posUI != null) {
             Ray castPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(castPoint, out hit, Mathf.Infinity)) {

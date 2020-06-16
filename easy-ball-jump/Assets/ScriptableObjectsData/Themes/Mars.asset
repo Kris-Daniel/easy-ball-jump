@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mars
   m_EditorClassIdentifier: 
   BackgroundColor: {r: 1, g: 0.3248416, b: 0.2783019, a: 1}
-  BallColor: {r: 0.19607842, g: 0.4081841, b: 1, a: 1}
+  BallColor: {r: 0.19607842, g: 0.8674791, b: 1, a: 1}

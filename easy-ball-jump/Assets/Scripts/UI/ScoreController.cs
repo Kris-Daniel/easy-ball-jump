@@ -11,7 +11,7 @@ public class ScoreController : MonoBehaviour {
         PlayerController.OnChangeScore += UpdateScore;
     }
 
-    void UpdateScore(int scoreToAdd) {
+    public void UpdateScore(int scoreToAdd) {
         gameObject.GetComponent<Text>().text = "Score: " + GameSceneManager.Instance.score;
     }
 
