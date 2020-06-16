@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Helpers;
 using ScriptableObjects;
 using UnityEngine;
 
-public class GameSceneManager : MonoBehaviour {
+public class GameSceneManager : MonoSingleton<GameSceneManager> {
     [SerializeField]
     List<Theme> _ThemeColors;
     void Start() {
@@ -15,7 +16,7 @@ public class GameSceneManager : MonoBehaviour {
 
     }
 
-    void LoseGame() {
+    public void LoseGame() {
         UIManager.Instance.GetComponent<ButtonActions>().PauseGame("LoseMenu");
     }
     

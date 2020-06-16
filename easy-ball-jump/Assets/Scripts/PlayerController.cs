@@ -10,20 +10,20 @@ public class PlayerController : MonoSingleton<PlayerController> {
     float _startedPosX;
 
     public Rigidbody rigidbody;
-    BoxCollider _boxCollider;
+    TrailRenderer _trailRenderer;
     void Start() {
+        transform.position = new Vector3(0, 1, 0);
         rigidbody = gameObject.GetComponent<Rigidbody>();
         rigidbody.velocity += new Vector3(0, 10f, 0);
-        _boxCollider = gameObject.GetComponent<BoxCollider>();
+        _trailRenderer = gameObject.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
     void Update() {
-        /*if (rigidbody.velocity.y > 0.01f) {
-            _boxCollider.enabled = false;
-        } else if (rigidbody.velocity.y < 0.01f) {
-            _boxCollider.enabled = true;
-        }*/
+        if (rigidbody.velocity.y < 0f)
+            _trailRenderer.enabled = false;
+       else
+            _trailRenderer.enabled = true;
         
         float xOffset = InputManager.Instance.xOffset;
         if (xOffset > 0.01f || xOffset < -0.01f) {
@@ -40,7 +40,6 @@ public class PlayerController : MonoSingleton<PlayerController> {
         }
         
     }
-
 
     void OnTriggerEnter(Collider col) {
         if (rigidbody.velocity.y < 0.01f) {
