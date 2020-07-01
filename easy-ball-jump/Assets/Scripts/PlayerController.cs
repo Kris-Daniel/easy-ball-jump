@@ -5,7 +5,7 @@ using Helpers;
 using Platforms;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-
+// test
 public class PlayerController : MonoSingleton<PlayerController> {
     bool _hasStartedPos = false;
     float _startedPosX;
